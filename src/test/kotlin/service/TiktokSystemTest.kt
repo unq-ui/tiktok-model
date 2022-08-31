@@ -49,6 +49,39 @@ class TiktokSystemTest {
     }
 
     @Test
+    fun loginTest() {
+        val system = TiktokSystem()
+        assertEquals(system.users.size, 0)
+        system.addUser(DraftUser("user", "user@email.com", "user", "image"))
+        assertEquals(system.users.size, 1)
+        val user = system.users[0]
+        val userLogin = system.login("user", "user")
+        assertEquals(user, userLogin)
+    }
+
+    @Test
+    fun loginWithWrongPasswordTest() {
+        val system = TiktokSystem()
+        assertEquals(system.users.size, 0)
+        system.addUser(DraftUser("user", "user@email.com", "user", "image"))
+        assertEquals(system.users.size, 1)
+        assertThrows<UserException> {
+            system.login("user", "pass")
+        }
+    }
+
+    @Test
+    fun loginWithWrongUsernameTest() {
+        val system = TiktokSystem()
+        assertEquals(system.users.size, 0)
+        system.addUser(DraftUser("user", "user@email.com", "user", "image"))
+        assertEquals(system.users.size, 1)
+        assertThrows<UserException> {
+            system.login("user10", "user")
+        }
+    }
+
+    @Test
     fun editUserTest() {
         val system = TiktokSystem()
         assertEquals(system.users.size, 0)

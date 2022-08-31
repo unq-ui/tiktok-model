@@ -14,6 +14,10 @@ class TiktokSystem {
     val comments = mutableListOf<Comment>()
     private val idGenerator = IdGenerator()
 
+    fun login(username: String, password: String): User {
+        return users.find { it.username == username && it.password == password } ?: throw UserException("User not found")
+    }
+
     fun addPost(idUser: String, draftPost: DraftPost): Post {
         val user = getUser(idUser)
         val post = Post(idGenerator.nextPostId(), user, draftPost.title, draftPost.description, draftPost.video)
