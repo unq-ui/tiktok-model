@@ -1,5 +1,4 @@
-# UNQ » UIs » Dominio » Rotten tomatoes
-
+# UNQ » UIs » Dominio » Tiktok
 [![](https://jitpack.io/v/unq-ui/tiktok-model.svg)](https://jitpack.io/#unq-ui/tiktok-model)
 
 Construcción de Interfaces de Usuario, Universidad Nacional de Quilmes.
