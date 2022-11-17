@@ -64,9 +64,10 @@ class TiktokSystem {
 
     fun getRecommendAccounts(idUser: String): List<User> {
         val user = this.getUser(idUser)
-        val usersToRemove = user.following
+        val usersToRemove = mutableListOf<User>()
+        usersToRemove.addAll(user.following)
         usersToRemove.add(user)
-        return getRecommendAccounts(this.getUser(idUser).following)
+        return getRecommendAccounts(usersToRemove)
     }
 
     private fun getRecommendAccounts(usersToRemove: List<User>): List<User> {
