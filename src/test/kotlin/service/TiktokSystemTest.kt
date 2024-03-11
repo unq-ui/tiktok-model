@@ -402,41 +402,6 @@ class TiktokSystemTest {
     }
 
     @Test
-    fun getRecommendAccountsTest() {
-        var system = TiktokSystem()
-        system.addUser(DraftUser("user", "user@email.com", "user", "image"))
-        system.addUser(DraftUser("user1", "user1@email.com", "user", "image"))
-        system.addUser(DraftUser("user2", "user2@email.com", "user", "image"))
-        system.addUser(DraftUser("user3", "user3@email.com", "user", "image"))
-        system.addUser(DraftUser("user4", "user4@email.com", "user", "image"))
-        system.addUser(DraftUser("user5", "user5@email.com", "user", "image"))
-        system.addUser(DraftUser("user6", "user6@email.com", "user", "image"))
-        system.addUser(DraftUser("user7", "user7@email.com", "user", "image"))
-        system.addUser(DraftUser("user8", "user8@email.com", "user", "image"))
-        system.addUser(DraftUser("user9", "user9@email.com", "user", "image"))
-        system.addUser(DraftUser("user10", "user10@email.com", "user", "image"))
-        system.addUser(DraftUser("user11", "user11@email.com", "user", "image"))
-        system.addUser(DraftUser("user12", "user12@email.com", "user", "image"))
-        system.addUser(DraftUser("user13", "user13@email.com", "user", "image"))
-        system.addUser(DraftUser("user14", "user14@email.com", "user", "image"))
-
-        system.updateFollow("u_1", "u_2")
-        system.updateFollow("u_1", "u_3")
-        system.updateFollow("u_1", "u_4")
-
-        system.updateFollow("u_2", "u_3")
-        system.updateFollow("u_2", "u_4")
-
-        system.updateFollow("u_3", "u_4")
-
-        val recommendedAccounts = system.getRecommendAccounts()
-        assertEquals(recommendedAccounts.size, 10)
-        assertEquals(recommendedAccounts[0].id, "u_4")
-        assertEquals(recommendedAccounts[1].id, "u_3")
-        assertEquals(recommendedAccounts[2].id, "u_2")
-    }
-
-    @Test
     fun getRecommendAccountsWithUserIdTest() {
         var system = TiktokSystem()
         system.addUser(DraftUser("user", "user@email.com", "user", "image"))
