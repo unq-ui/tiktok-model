@@ -198,6 +198,7 @@ class TiktokSystem {
     fun updateFollow(idUser: String, idOfUserToFollow: String): User {
         val user = getUser(idUser)
         val userToFollow = getUser(idOfUserToFollow)
+        if (user.id == userToFollow.id) throw UserException("Can't follow yourself.")
         user.addOrRemoveFollow(userToFollow)
         userToFollow.addOrRemoveFollower(user)
         return user

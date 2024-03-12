@@ -170,6 +170,20 @@ class TiktokSystemTest {
     }
 
     @Test
+    fun updateFollowTestWithSameId() {
+        val system = TiktokSystem()
+        assertEquals(system.users.size, 0)
+        system.addUser(DraftUser("user", "user@email.com", "user", "image"))
+        system.addUser(DraftUser("user2", "user2@email.com", "user2", "image2"))
+        assertEquals(system.users.size, 2)
+        assertEquals(system.getUser("u_1").following.size, 0)
+        assertThrows<UserException> {
+            system.updateFollow("u_1", "u_1")
+        }
+    }
+
+
+    @Test
     fun addPostTest() {
         val system = TiktokSystem()
         assertEquals(system.users.size, 0)
