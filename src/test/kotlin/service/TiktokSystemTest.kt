@@ -4,6 +4,7 @@ import drafts.DraftComment
 import drafts.DraftEditUser
 import drafts.DraftPost
 import drafts.DraftUser
+import exceptions.FollowException
 import exceptions.PostException
 import exceptions.UserException
 import org.junit.jupiter.api.assertThrows
@@ -177,7 +178,7 @@ class TiktokSystemTest {
         system.addUser(DraftUser("user2", "user2@email.com", "user2", "image2"))
         assertEquals(system.users.size, 2)
         assertEquals(system.getUser("u_1").following.size, 0)
-        assertThrows<UserException> {
+        assertThrows<FollowException> {
             system.updateFollow("u_1", "u_1")
         }
     }

@@ -22,7 +22,7 @@ Agregar la dependencia:
 <dependency>
     <groupId>com.github.unq-ui</groupId>
     <artifactId>tiktok-model</artifactId>
-    <version>v1.0.6</version>
+    <version>v1.0.7</version>
 </dependency>
 ```
 
@@ -141,13 +141,14 @@ class TiktokSystem {
     */
     fun updateLike(idUser: String, idPost: String): Post
 
-    /*
-        * Update the follow of a user
-        * @param idUser the id of the user that is going to follow another user
-        * @param idOfUserToFollow the id of the user that is going to be followed
-        * @return the user that has been followed
-        * @throws UserException if the user is not found
-    */
+  /*
+      * Update the follow of a user
+      * @param idUser the id of the user that is going to follow another user
+      * @param idOfUserToFollow the id of the user that is going to be followed
+      * @return the user that has been followed
+      * @throws UserException if the user is not found
+      * @throws FollowException if the user is the same id as idOfUserToFollow
+  */
     fun updateFollow(idUser: String, idOfUserToFollow: String): User
 
     /*

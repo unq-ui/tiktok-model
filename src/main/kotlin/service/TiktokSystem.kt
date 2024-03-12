@@ -4,6 +4,7 @@ import drafts.DraftComment
 import drafts.DraftEditUser
 import drafts.DraftPost
 import drafts.DraftUser
+import exceptions.FollowException
 import exceptions.PostException
 import exceptions.UserException
 import model.*
@@ -194,11 +195,12 @@ class TiktokSystem {
         * @param idOfUserToFollow the id of the user that is going to be followed
         * @return the user that has been followed
         * @throws UserException if the user is not found
+        * @throws FollowException if the user is the same id as idOfUserToFollow
     */
     fun updateFollow(idUser: String, idOfUserToFollow: String): User {
         val user = getUser(idUser)
         val userToFollow = getUser(idOfUserToFollow)
-        if (user.id == userToFollow.id) throw UserException("Can't follow yourself.")
+        if (user.id == userToFollow.id) throw FollowException("Can't follow yourself.")
         user.addOrRemoveFollow(userToFollow)
         userToFollow.addOrRemoveFollower(user)
         return user
