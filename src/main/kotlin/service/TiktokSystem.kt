@@ -230,7 +230,7 @@ class TiktokSystem {
     }
 
     private fun checkExistingNewUser(user: DraftUser) {
-        if (users.any { it.username === user.username }) throw UserException("Username is in used")
-        if (users.any { it.email === user.email }) throw UserException("Email is in used")
+        if (users.any { it.username == user.username }) throw UserException("Username is in used")
+        if (users.any { it.email == user.email }) throw UserException("Email is in used")
     }
 }
