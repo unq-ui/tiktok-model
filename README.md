@@ -22,7 +22,7 @@ Agregar la dependencia:
 <dependency>
     <groupId>com.github.unq-ui</groupId>
     <artifactId>tiktok-model</artifactId>
-    <version>v1.0.7</version>
+    <version>v1.0.8</version>
 </dependency>
 ```
 
